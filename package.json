@@ -1,0 +1,14 @@
+{
+  "name": "webgl",
+  "version": "1.0.0",
+  "description": "WebGL Practice",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "author": "YDC",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.3.0"
+  }
+}
