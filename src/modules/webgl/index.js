@@ -1,38 +1,20 @@
 import frag from "./01/index.frag"
 import vert from "./01/index.vert"
+import { createProgram, createShader } from "../../utils"
 
 const myCanvas = document.querySelector("#myCanvas")
 
 const gl =
     myCanvas.getContext("webgl") || myCanvas.getContext("experimental-webgl")
 
-// 流程1：创建顶点着色器对象
-const vertexShader = gl.createShader(gl.VERTEX_SHADER)
+// 创建顶点着色器程序对象
+const vertexShader = createShader(gl, gl.VERTEX_SHADER, vert)
 
-// 将代码分配给顶点着色器对象
-gl.shaderSource(vertexShader, vert)
+// 创建片元着色器程序对象
+const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, frag)
 
-// 编译
-gl.compileShader(vertexShader)
-
-// 流程 2：创建片元着色器对象
-const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER)
-
-// 将代码分配给片元着色器对象
-gl.shaderSource(fragmentShader, frag)
-
-// 编译
-gl.compileShader(fragmentShader)
-
-// 流程 3：创建着色器程序对象
-const program = gl.createProgram()
-
-// 将顶点着色器对象和片元着色器对象分配给着色器程序对象
-gl.attachShader(program, vertexShader)
-gl.attachShader(program, fragmentShader)
-
-// 链接着色器程序对象
-gl.linkProgram(program)
+// 创建着色器程序对象
+const program = createProgram(gl, vertexShader, fragmentShader)
 
 // 使用着色器程序对象
 gl.useProgram(program)
