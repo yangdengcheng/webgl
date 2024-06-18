@@ -1,6 +1,8 @@
-import frag from "./01/index.frag"
-import vert from "./01/index.vert"
-import { createProgram, createShader } from "../../utils"
+// 需求：绘制一个点
+
+import frag from "@/modules/webgl/01/index.frag"
+import vert from "@/modules/webgl/01/index.vert"
+import { createProgram, createShader } from "@/utils"
 
 const myCanvas = document.querySelector("#myCanvas")
 
@@ -19,7 +21,7 @@ const program = createProgram(gl, vertexShader, fragmentShader)
 // 使用着色器程序对象
 gl.useProgram(program)
 
-// 流程 4：绘制
+// 绘制
 gl.clearColor(0.0, 0.0, 0.0, 1.0)
 
 // 清空颜色缓冲区

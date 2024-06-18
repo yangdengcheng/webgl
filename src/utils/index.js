@@ -23,7 +23,17 @@ function createProgram(gl, vertexShader, fragmentShader) {
     return program
 }
 
+function generateRandomColor() {
+    return {
+        r: Math.random() * 255,
+        g: Math.random() * 255,
+        b: Math.random() * 255,
+        a: 1
+    }
+}
+
 export {
     createShader,
-    createProgram
+    createProgram,
+    generateRandomColor
 }
