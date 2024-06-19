@@ -66,7 +66,14 @@ myCanvas.addEventListener("click", (e) => {
         // webgl 浮点数占用 4 个字节，32 位
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(point), gl.STATIC_DRAW)
         gl.clear(gl.COLOR_BUFFER_BIT)
-        gl.drawArrays(gl.LINES, 0, point.length / 2)
+
+        /**
+         * gl.LINE 基本线段
+         * gl.LINE_STRIP 连续线段
+         * gl.LINE_LOOP 闭合线段
+         
+         */
+        gl.drawArrays(gl.LINE_LOOP, 0, point.length / 2)
     }
 })
 
